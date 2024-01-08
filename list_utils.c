@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 18:28:48 by jdelorme          #+#    #+#             */
-/*   Updated: 2023/12/20 18:45:22 by jdelorme         ###   ########.fr       */
+/*   Updated: 2023/12/21 14:43:58 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ t_node	*ft_lstnew_node(int nbr)
     // printf("--------------------\n");
 	return (node);
 }
-t_node	*ft_lstlast(t_node **stack);
+t_node	*ft_lstlast_node(t_node **stack)
 {
 	t_node	*ult;
 
-	ult = stack;
-	if (!lst)
+	ult = *stack;
+	if (!stack)
 		return (NULL);
 	while (ult->next)
 	{

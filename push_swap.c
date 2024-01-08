@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 17:58:21 by jdelorme          #+#    #+#             */
-/*   Updated: 2023/12/20 18:35:06 by jdelorme         ###   ########.fr       */
+/*   Updated: 2024/01/08 16:11:06 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,16 +78,26 @@ int main(int argc, char **argv)
     // ! FIN DE CONTROL
     if (ft_check_ordered(&a))
     {
-    //    ft_swap(&a);
-        ft_swap_swap(&a, &b);
-        // if (ft_lstsize_node < 5)
-        //     ft_little_stack(&a);
+        if (ft_lstsize_node(a) == 2)
+            ft_swap_a(&a);
+        if (ft_lstsize_node(a) == 3)
+            ft_three_stack(&a);
+        if (ft_lstsize_node(a) == 4)
+            ft_four_stack(&a, &b);
+        if (ft_lstsize_node(a) == 5)
+            ft_five_stack(&a, &b);
         // else
         //     ft_push_swap;
     }
      while(a)
     {
-        printf("--> %d\n", a->value);
+        printf("a--> %d\n", a->value);
         a = a->next;
+    }
+    printf("--------------------\n");
+      while(b)
+    {
+        printf("b--> %d\n", b->value);
+        b = b->next;
     }
 }
