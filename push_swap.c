@@ -6,31 +6,112 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 17:58:21 by jdelorme          #+#    #+#             */
-/*   Updated: 2024/01/08 16:11:06 by jdelorme         ###   ########.fr       */
+/*   Updated: 2024/01/10 20:35:18 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+//Arreglar esta funcion, esta comprobando la cantidad de bits que tiene un numero,
+// pero no la cantidad de bits que tendre que comprobar despues en mi programa
+// principal push swap.
+int ft_calculate_bits(int nb)
+{
+    int count;
 
-// void    ft_sort_two(t_node **a)
-// {
-//     t_node *temp;
-
-//     temp = a->next;
-//     a = a->next->
+    printf("MAX--->%d\n", nb);
+    count = 0;
+    while (nb > 0)
+    {
+        count += nb & 1;
+        nb >>= 1;
+    }
+    printf("MAX--->%d\n", count);
+    return (count);
+}
+int ft_find_max_bits(t_node **a)
+{
+    int     i;
+    int     value;
+    t_node  *head;
     
-// }
-// void    ft_little_stack(t_node **a)
-// {
-//     if (ft_lstsize_node == 2)
-//         ft_sort_two(a);
-    // if (ft_lstsize_node == 3)
-    //     ft_little_sort();
-    // if (ft_lstsize_node == 4)
-    //     ft_little_sort();
-    // if (ft_lstsize_node == 5)
-    //     ft_little_sort();
-//}
+    i = 0;
+    value = 0;
+    head = (*a);
+    while ((*a))
+    {
+        if ((*a)->index > i)
+            i = (*a)->index;
+        (*a) = (*a)->next;
+    }
+    (*a) = head;
+    while ((*a))
+    {
+        if ((*a)->index == i)
+        {
+            value = (*a)->value;
+            return (value);
+        }
+        (*a) = (*a)->next;
+    }
+    (*a) = head;
+    return (value);
+}
+int ft_set_index(t_node **a)
+{
+    int i;
+    int com;
+    t_node *head;
+    t_node *runner;
+    
+    head = (*a);
+    while (head)
+    {
+        i = 0;
+        com = head->value;
+        runner = *a;
+        while (runner)
+        {
+            if (com > runner->value)
+                i++;
+            runner = runner->next;
+        }
+        head->index = i;
+        head = head->next;
+    }
+    return(i);
+}
+
+void    ft_push_swap(t_node **a, t_node **b)
+{
+    int max_bits;
+    int stack_size;
+    int i;
+    t_node  *head;
+
+    ft_set_index(a);
+    max_bits = ft_find_max_bits(a);
+    max_bits = ft_calculate_bits(max_bits);
+    stack_size = (ft_lstsize_node(*a));
+    i = (max_bits - 1);
+    printf("------------->%d\n", i);
+    while (i >= 0)
+    {
+      
+        head = *a;
+        while (head)
+        {
+            if (((head->index >> i) & 1) == 1)
+                ft_rotate_a(a);
+            if (((head->index >> i) & 1) == 0)
+                ft_push_a(a, b);
+            head = head->next;
+        }
+        i--;
+    }
+}
+//  Llevarme todos los numeros binarios terminados en 0 a stack de b (PUSH A);
+//  Volver a traerlos en al stack de A;
+//  Repetir el proceso en bit por bit
 
 char	**ft_join_args(char **argv)
 {
@@ -86,12 +167,13 @@ int main(int argc, char **argv)
             ft_four_stack(&a, &b);
         if (ft_lstsize_node(a) == 5)
             ft_five_stack(&a, &b);
-        // else
-        //     ft_push_swap;
+        else
+            ft_push_swap(&a, &b);
     }
      while(a)
     {
         printf("a--> %d\n", a->value);
+        //  printf("ain--> %d\n", a->index);
         a = a->next;
     }
     printf("--------------------\n");

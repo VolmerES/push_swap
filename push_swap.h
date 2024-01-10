@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 18:20:57 by jdelorme          #+#    #+#             */
-/*   Updated: 2024/01/08 16:02:50 by jdelorme         ###   ########.fr       */
+/*   Updated: 2024/01/10 16:21:54 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 typedef struct s_node
 {
 	int 			value;
+	int				index;
+	int				size_a;
+	int				size_b;
 	struct s_node	*next;
     struct s_node	*prev;
 }					t_node;
@@ -50,7 +53,10 @@ void    ft_reverse_rotate_ab(t_node **a, t_node **b);
 void    ft_push_b(t_node **b, t_node **a);
 void    ft_push_a(t_node **a, t_node **b);
 
-void   ft_three_stack(t_node **a);
-void   ft_four_stack(t_node **a, t_node **b);
+void	ft_three_stack(t_node **a);
+void	ft_four_stack(t_node **a, t_node **b);
 int		ft_find_min(t_node *node);
-void   ft_five_stack(t_node **a, t_node **b);
+void  	ft_five_stack(t_node **a, t_node **b);
+int		ft_set_index(t_node **a);
+void    ft_push_swap(t_node **a, t_node **b);
+int		ft_find_max_bits(t_node **a);

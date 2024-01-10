@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 18:30:14 by jdelorme          #+#    #+#             */
-/*   Updated: 2023/12/20 18:30:20 by jdelorme         ###   ########.fr       */
+/*   Updated: 2024/01/10 15:35:19 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@ int    ft_check_ordered(t_node **a)
 }
 int    ft_syntax(char *split)
 {
-    //gestionar los negativos
     int j;
     
     j = 0;
+    if (split[j] == '-')
+        j++;
     while (split[j] != '\0')
     {
         if (split[j] < '0' || split[j] > '9')

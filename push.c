@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:26:04 by jdelorme          #+#    #+#             */
-/*   Updated: 2024/01/08 16:01:21 by jdelorme         ###   ########.fr       */
+/*   Updated: 2024/01/10 16:44:05 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void    ft_push(t_node **a, t_node **b)
 {
     t_node  *temp1;
     t_node  *temp2;
-    
+    // if (*a == NULL || *b == NULL)
+    //     return;
     temp1 = *a;
     temp2 = *b;
     *a = (*a)->next;
