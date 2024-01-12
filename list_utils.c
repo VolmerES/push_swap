@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 18:28:48 by jdelorme          #+#    #+#             */
-/*   Updated: 2023/12/21 14:43:58 by jdelorme         ###   ########.fr       */
+/*   Updated: 2024/01/12 12:41:53 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	ft_lstsize_node(t_node *lst)
 	}
 	return (i);
 }
+
 void	ft_lstadd_back_node(t_node **lst, t_node *new)
 {
 	t_node	*actual;
@@ -36,11 +37,9 @@ void	ft_lstadd_back_node(t_node **lst, t_node *new)
 		while (actual->next)
 			actual = actual->next;
 		actual->next = new;
-    //     // ! Control 3
-    //     printf("Next memdir: %p \n", actual->next);
-    //     printf("--------------------\n");
 	}
 }
+
 t_node	*ft_lstnew_node(int nbr)
 {
 	t_node	*node;
@@ -50,11 +49,9 @@ t_node	*ft_lstnew_node(int nbr)
 		return (NULL);
 	node->value = nbr;
 	node->next = NULL;
-    // // ! Control 2
-    // printf("Node value--> %d\n", node->value);
-    // printf("--------------------\n");
 	return (node);
 }
+
 t_node	*ft_lstlast_node(t_node **stack)
 {
 	t_node	*ult;
