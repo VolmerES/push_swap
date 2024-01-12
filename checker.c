@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 18:30:14 by jdelorme          #+#    #+#             */
-/*   Updated: 2024/01/10 15:35:19 by jdelorme         ###   ########.fr       */
+/*   Updated: 2024/01/11 13:01:17 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int    ft_syntax(char *split)
     int j;
     
     j = 0;
-    if (split[j] == '-')
+    if (split[j] == '-' || split[j] == '+')
         j++;
     while (split[j] != '\0')
     {
