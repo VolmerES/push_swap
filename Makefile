@@ -12,7 +12,7 @@ SRC =	checker.c \
 
 
 OBJS = $(SRC:.c=.o)
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
 FT_LIB = ./libft/libft.a
 
 all : $(NAME)

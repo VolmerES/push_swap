@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 18:20:57 by jdelorme          #+#    #+#             */
-/*   Updated: 2024/01/12 12:51:34 by jdelorme         ###   ########.fr       */
+/*   Updated: 2024/01/22 17:13:52 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_node
 	struct s_node	*next;
 	struct s_node	*prev;
 }					t_node;
+long				ft_atol(const char *str);
 char				**ft_join_args(char **argv);
 t_node				*ft_lstnew_node(int nbr);
 t_node				*ft_lstlast_node(t_node **stack);
@@ -40,6 +41,7 @@ void				ft_rotate_a(t_node **a);
 void				ft_rotate_b(t_node **b);
 void				ft_rotate(t_node **stack);
 void				ft_three_stack(t_node **a);
+void				ft_free_matrix(char **split);
 void				ft_push(t_node **a, t_node **b);
 void				ft_reverse_rotate_a(t_node **a);
 void				ft_reverse_rotate_b(t_node **b);
@@ -52,5 +54,7 @@ void				ft_swap_swap(t_node **a, t_node **b);
 void				ft_rotate_ab(t_node **a, t_node **b);
 void				ft_five_stack(t_node **a, t_node **b);
 void				ft_four_stack(t_node **a, t_node **b);
+void				ft_tiny_stack(t_node **a, t_node **b);
 void				ft_reverse_rotate_ab(t_node **a, t_node **b);
 void				ft_lstadd_back_node(t_node **lst, t_node *new);
+void				ft_lstclear_node(t_node **lst);

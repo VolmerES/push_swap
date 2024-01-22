@@ -6,11 +6,23 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:38:00 by jdelorme          #+#    #+#             */
-/*   Updated: 2024/01/12 12:19:19 by jdelorme         ###   ########.fr       */
+/*   Updated: 2024/01/22 17:18:09 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_tiny_stack(t_node **a, t_node **b)
+{
+	if (ft_lstsize_node(*a) == 2)
+		ft_swap_a(a);
+	if (ft_lstsize_node(*a) == 3)
+		ft_three_stack(a);
+	if (ft_lstsize_node(*a) == 4)
+		ft_four_stack(a, b);
+	if (ft_lstsize_node(*a) == 5)
+		ft_five_stack(a, b);
+}
 
 int	ft_find_min(t_node *node)
 {
@@ -24,19 +36,14 @@ int	ft_find_min(t_node *node)
 	while (node)
 	{
 		if (nb > node->value)
-		{
 			nb = node->value;
-		}
 		node = node->next;
 	}
 	node = head;
 	while (node)
 	{
 		if (nb == node->value)
-		{
-			printf("%d\n", i);
 			return (i);
-		}
 		i++;
 		node = node->next;
 	}
@@ -75,6 +82,15 @@ void	ft_five_stack(t_node **a, t_node **b)
 	int	i;
 
 	i = ft_find_min(*a);
+	if (i > 2)
+	{
+		i = (5 - i);
+		while (i)
+		{
+			ft_reverse_rotate_a(a);
+			i--;
+		}
+	}
 	while (i)
 	{
 		ft_rotate_a(a);

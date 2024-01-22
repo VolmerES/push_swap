@@ -6,11 +6,41 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 18:30:48 by jdelorme          #+#    #+#             */
-/*   Updated: 2024/01/12 12:21:06 by jdelorme         ###   ########.fr       */
+/*   Updated: 2024/01/22 17:17:09 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_lstclear_node(t_node **lst)
+{
+	t_node	*actnod;
+	t_node	*nxtnod;
+
+	if (!lst || !*lst)
+		return ;
+	actnod = *lst;
+	while (actnod)
+	{
+		nxtnod = actnod->next;
+		free(actnod);
+		actnod = nxtnod;
+	}
+	*lst = NULL;
+}
+
+void	ft_free_matrix(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
 
 void	ft_add_node(t_node **a, int nbr)
 {
@@ -24,22 +54,21 @@ int	ft_stack_init(t_node **a, char **split)
 {
 	int		i;
 	long	nbr;
-	t_node	*temp_node;
 
 	i = 0;
 	while (split[i])
 	{
 		ft_syntax(split[i]);
-		// ft_atol, sino da error y no detecta int max y int min
-		nbr = ft_atoi(split[i]);
+		nbr = ft_atol(split[i]);
 		if (nbr < INT_MIN || nbr > INT_MAX)
 		{
-			printf("ERROR_INT: Number too long");
+			write(2, "Error\n", 6);
 			return (1);
 		}
 		ft_repetition(*a, (int)nbr);
 		ft_add_node(a, nbr);
 		++i;
 	}
+	ft_free_matrix(split);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 18:28:48 by jdelorme          #+#    #+#             */
-/*   Updated: 2024/01/12 12:41:53 by jdelorme         ###   ########.fr       */
+/*   Updated: 2024/01/22 17:16:29 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,25 @@ t_node	*ft_lstlast_node(t_node **stack)
 		ult = ult->next;
 	}
 	return (ult);
+}
+
+long	ft_atol(const char *str)
+{
+	long	r;
+	long	n;
+
+	r = 0;
+	n = 1;
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
+		n *= -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
+	{
+		r = r * 10 + *str - '0';
+		str++;
+	}
+	return (r * n);
 }

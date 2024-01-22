@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 17:58:21 by jdelorme          #+#    #+#             */
-/*   Updated: 2024/01/12 12:38:39 by jdelorme         ###   ########.fr       */
+/*   Updated: 2024/01/22 17:12:49 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	ft_find_max_bits(t_node **a)
 
 	i = 0;
 	lst = (ft_lstsize_node(*a));
-	printf("List size:--->%d\n", lst);
 	while ((lst >> i) != 0)
 		i++;
 	return (i);
@@ -96,6 +95,8 @@ char	**ft_join_args(char **argv)
 		i++;
 	}
 	split = ft_split(tmp, ' ');
+	if (split[0] == NULL)
+		write(2, "Error\n", 6);
 	free(tmp);
 	return (split);
 }
@@ -116,27 +117,10 @@ int	main(int argc, char **argv)
 	ft_stack_init(&a, split);
 	if (ft_check_ordered(&a))
 	{
-		if (ft_lstsize_node(a) == 2)
-			ft_swap_a(&a);
-		if (ft_lstsize_node(a) == 3)
-			ft_three_stack(&a);
-		if (ft_lstsize_node(a) == 4)
-			ft_four_stack(&a, &b);
-		if (ft_lstsize_node(a) == 5)
-			ft_five_stack(&a, &b);
+		if (ft_lstsize_node(a) <= 5)
+			ft_tiny_stack(&a, &b);
 		if (ft_lstsize_node(a) > 5)
 			ft_push_swap(&a, &b);
 	}
-	// while (a)
-	// {
-	// 	printf("a--> %d\n", a->value);
-	// 	printf("ain--> %d\n", a->index);
-	// 	a = a->next;
-	// }
-	// printf("--------------------\n");
-	//     while(b)
-	//     {
-	//         printf("b--> %d\n", b->value);
-	//         b = b->next;
-	//     }
+	ft_lstclear_node(&a);
 }
