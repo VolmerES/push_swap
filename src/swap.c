@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:23:28 by jdelorme          #+#    #+#             */
-/*   Updated: 2024/01/23 14:09:50 by jdelorme         ###   ########.fr       */
+/*   Updated: 2024/01/23 16:10:14 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_swap(t_node **stack)
 {
 	t_node	*temp;
 
+	if ((!(*stack)) || (!(*stack)->next))
+		return ;
 	temp = (*stack)->next;
 	(*stack)->next = temp->next;
 	temp->next = *stack;

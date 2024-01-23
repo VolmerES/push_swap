@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 18:30:48 by jdelorme          #+#    #+#             */
-/*   Updated: 2024/01/23 14:20:23 by jdelorme         ###   ########.fr       */
+/*   Updated: 2024/01/23 16:19:05 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,10 @@ int	ft_stack_init(t_node **a, char **split)
 	{
 		ft_syntax(split[i]);
 		nbr = ft_atol(split[i]);
-		// ! COMPROBAR
 		if (nbr < INT_MIN || nbr > INT_MAX)
 		{
 			write(2, "Error\n", 6);
-			return (1);
+			exit (1);
 		}
 		ft_repetition(*a, (int)nbr);
 		ft_add_node(a, nbr);

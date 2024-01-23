@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:24:41 by jdelorme          #+#    #+#             */
-/*   Updated: 2024/01/23 14:09:45 by jdelorme         ###   ########.fr       */
+/*   Updated: 2024/01/23 16:10:50 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_rotate(t_node **stack)
 	t_node	*temp;
 	t_node	*temp2;
 
+	if ((!(*stack)) || (!(*stack)->next))
+		return ;
 	temp2 = (*stack)->next;
 	temp = ft_lstlast_node(stack);
 	temp->next = *stack;

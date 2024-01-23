@@ -6,7 +6,7 @@
 /*   By: jdelorme <jdelorme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 18:30:14 by jdelorme          #+#    #+#             */
-/*   Updated: 2024/01/23 14:09:26 by jdelorme         ###   ########.fr       */
+/*   Updated: 2024/01/23 16:24:30 by jdelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_syntax(char *split)
 	if (((split[j] == '-' || split[j] == '+')) && (split[j + 1] == '\0'))
 	{
 		write(2, "Error\n", 6);
-		return (1);
+		exit (1);
 	}
 	if (split[j] == '-' || split[j] == '+')
 		j++;
@@ -45,7 +45,7 @@ int	ft_syntax(char *split)
 		if (split[j] < '0' || split[j] > '9')
 		{
 			write(2, "Error\n", 6);
-			return (1);
+			exit (1);
 		}
 		j++;
 	}
@@ -62,7 +62,7 @@ int	ft_repetition(t_node *a, int nbr)
 		if (temp->value == nbr)
 		{
 			write(2, "Error\n", 6);
-			return (1);
+			exit(1);
 		}
 		temp = temp->next;
 	}
