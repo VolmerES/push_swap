@@ -1,14 +1,14 @@
 NAME = push_swap
 CC = gcc
-SRC =	checker.c \
-		list_utils.c \
-		push_swap.c \
-		push.c \
-		reverse_rotate.c \
-		rotate.c \
-		stack.c \
-		swap.c \
-		tiny_stack.c
+SRC =	./src/checker.c \
+		./src/list_utils.c \
+		./src/push_swap.c \
+		./src/push.c \
+		./src/reverse_rotate.c \
+		./src/rotate.c \
+		./src/stack.c \
+		./src/swap.c \
+		./src/tiny_stack.c
 
 
 OBJS = $(SRC:.c=.o)
@@ -26,10 +26,10 @@ $(FT_LIB) :
 	@make -C ./libft/
 
 %.o : %.c
-	@$(CC) -c $(CFLAGS) $?
+	@$(CC) -c $(CFLAGS) $? -o $@
 
 clean:
-	@rm -f *.o
+	@rm -f $(OBJS)
 	@make clean -C ./libft/
 
 fclean: clean
