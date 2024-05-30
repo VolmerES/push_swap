@@ -2,8 +2,6 @@
 
 ---
 
----
-
 ![cover-push_swap.png](Push_Swap_Img/cover-push_swap.png)
 
 ## Swap_push is not so natural
