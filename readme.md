@@ -64,4 +64,4 @@ make
 ---
 
 Made by **Juan Bautista Delorme** (`jdelorme`) at 42 Madrid ·
-[Portfolio](https://juandelorme-portfolio.volmer.es) · [42 intra](https://profile.intra.42.fr/users/jdelorme)
+[Portfolio](https://juandelorme-portfolio.volmer.es) · [LinkedIn](https://www.linkedin.com/in/jdelorme/) · [42 intra](https://profile.intra.42.fr/users/jdelorme)
